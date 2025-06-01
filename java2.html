@@ -1,0 +1,205 @@
+import java.util.Date; // Import Date class for dynamic content
+import java.time.LocalDate; // For getting current year for footer
+import java.time.format.DateTimeFormatter; // For formatting date
+
+/**
+ * A Java program that generates an extensive and highly structured HTML string,
+ * including a header, navigation, multiple detailed content sections (hero, about,
+ * features, team, testimonials, contact), a complex form, a table, and a comprehensive footer.
+ * This demonstrates how server-side Java can build sophisticated web page content dynamically,
+ * simulating a full-fledged static site output.
+ */
+public class HtmlGeneratorExtensive {
+
+    public static void main(String[] args) {
+        // Use StringBuilder for efficient string concatenation when building HTML.
+        StringBuilder htmlContent = new StringBuilder();
+
+        // --- 1. HTML Document Structure ---
+        htmlContent.append("<!DOCTYPE html>\n");
+        htmlContent.append("<html lang=\"en\">\n");
+
+        // --- 2. Head Section ---
+        htmlContent.append("<head>\n");
+        htmlContent.append("    <meta charset=\"UTF-8\">\n");
+        htmlContent.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+        htmlContent.append("    <title>Comprehensive Java-Generated Website</title>\n");
+        htmlContent.append("    <meta name=\"description\" content=\"A dynamically generated web page showcasing Java's ability to create rich HTML content.\">\n");
+        // Inline CSS for comprehensive styling demonstration
+        htmlContent.append("    <style>\n");
+        htmlContent.append("        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; margin: 0; padding: 0; line-height: 1.6; color: #333; min-height: 100vh; display: flex; flex-direction: column; }\n");
+        htmlContent.append("        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }\n");
+        htmlContent.append("        header { background-color: #2c3e50; color: white; padding: 15px 0; text-align: center; border-radius: 8px 8px 0 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }\n");
+        htmlContent.append("        header h1 { margin: 0; font-size: 2.5em; }\n");
+        htmlContent.append("        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; margin-top: 15px; }\n");
+        htmlContent.append("        nav ul li { margin: 0 20px; }\n");
+        htmlContent.append("        nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }\n");
+        htmlContent.append("        nav ul li a:hover { color: #3498db; }\n");
+        htmlContent.append("        main { background-color: white; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 0 0 8px 8px; flex-grow: 1; }\n");
+        htmlContent.append("        section { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid #eee; }\n");
+        htmlContent.append("        section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }\n");
+        htmlContent.append("        h2 { color: #2980b9; font-size: 2.2em; margin-bottom: 20px; text-align: center; }\n");
+        htmlContent.append("        h3 { color: #34495e; font-size: 1.5em; margin-bottom: 10px; }\n");
+        htmlContent.append("        p { margin-bottom: 10px; }\n");
+        htmlContent.append("        .hero { text-align: center; padding: 60px 0; background-color: #eaf6f8; border-radius: 10px; margin-bottom: 40px; }\n");
+        htmlContent.append("        .hero h2 { font-size: 3em; color: #00796b; }\n");
+        htmlContent.append("        .hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto 20px auto; }\n");
+        htmlContent.append("        .button { display: inline-block; background-color: #27ae60; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease; }\n");
+        htmlContent.append("        .button:hover { background-color: #229a56; }\n");
+        htmlContent.append("        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }\n");
+        htmlContent.append("        .grid-item { background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }\n");
+        htmlContent.append("        .grid-item img { border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 10px; }\n");
+        htmlContent.append("        table { width: 100%; border-collapse: collapse; margin-top: 20px; }\n");
+        htmlContent.append("        table, th, td { border: 1px solid #ddd; }\n");
+        htmlContent.append("        th, td { padding: 12px; text-align: left; }\n");
+        htmlContent.append("        th { background-color: #f2f2f2; }\n");
+        htmlContent.append("        .form-group { margin-bottom: 18px; }\n");
+        htmlContent.append("        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #2c3e50; }\n");
+        htmlContent.append("        .form-group input[type=\"text\"], .form-group input[type=\"email\"], .form-group textarea, .form-group select { width: calc(100% - 24px); padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em; }\n");
+        htmlContent.append("        .form-group textarea { resize: vertical; min-height: 100px; }\n");
+        htmlContent.append("        .submit-button { background-color: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s ease; }\n");
+        htmlContent.append("        .submit-button:hover { background-color: #229a56; }\n");
+        htmlContent.append("        footer { text-align: center; padding: 20px 0; background-color: #34495e; color: white; border-radius: 0 0 8px 8px; margin-top: 20px; }\n");
+        htmlContent.append("        footer .footer-links a { color: #bdc3c7; margin: 0 10px; text-decoration: none; transition: color 0.3s ease; }\n");
+        htmlContent.append("        footer .footer-links a:hover { color: white; }\n");
+        htmlContent.append("        @media (max-width: 768px) { h1 { font-size: 2em; } h2 { font-size: 1.8em; } .hero h2 { font-size: 2.5em; } nav ul { flex-direction: column; } nav ul li { margin: 5px 0; } .grid-container { grid-template-columns: 1fr; } }\n");
+        htmlContent.append("    </style>\n");
+        htmlContent.append("</head>\n");
+
+        // --- 3. Body Section ---
+        htmlContent.append("<body>\n");
+        htmlContent.append("    <div class=\"container\">\n");
+
+        // Header
+        htmlContent.append("        <header>\n");
+        htmlContent.append("            <h1>Our Dynamic Solutions</h1>\n");
+        htmlContent.append("            <nav>\n");
+        htmlContent.append("                <ul>\n");
+        htmlContent.append("                    <li><a href=\"#home\">Home</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#about\">About</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#features\">Features</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#team\">Team</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#contact\">Contact</a></li>\n");
+        htmlContent.append("                </ul>\n");
+        htmlContent.append("            </nav>\n");
+        htmlContent.append("        </header>\n");
+
+        // Main Content Area
+        htmlContent.append("        <main>\n");
+
+        // Home/Hero Section
+        htmlContent.append("            <section id=\"home\" class=\"hero\">\n");
+        htmlContent.append("                <h2>Innovating Your Digital World</h2>\n");
+        htmlContent.append("                <p>Experience seamless, scalable, and secure web solutions crafted with precision and passion. We transform ideas into powerful online realities.</p>\n");
+        htmlContent.append("                <a href=\"#contact\" class=\"button\">Get a Quote</a>\n");
+        htmlContent.append("                <a href=\"#features\" class=\"button\" style=\"background-color: #f39c12;\">Learn More</a>\n");
+        htmlContent.append("            </section>\n");
+
+        // About Section
+        htmlContent.append("            <section id=\"about\">\n");
+        htmlContent.append("                <h2>About Our Vision</h2>\n");
+        htmlContent.append("                <p>We are a team of dedicated professionals committed to delivering cutting-edge web development and digital solutions. Our philosophy centers on client collaboration, transparent processes, and continuous innovation. We believe in building long-term partnerships based on trust and mutual success.</p>\n");
+        htmlContent.append("                <p>Our journey began in " + (LocalDate.now().getYear() - 5) + " with a simple goal: to make the web a better place, one project at a time. Today, we continue to push boundaries, embracing new technologies to solve complex challenges and create impactful digital experiences.</p>\n");
+        htmlContent.append("            </section>\n");
+
+        // Features Section (with a grid)
+        htmlContent.append("            <section id=\"features\">\n");
+        htmlContent.append("                <h2>Key Features & Benefits</h2>\n");
+        htmlContent.append("                <div class=\"grid-container\">\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <h3>Responsive Design</h3>\n");
+        htmlContent.append("                        <p>Websites that look great on any device, from desktops to smartphones.</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <h3>Scalable Architecture</h3>\n");
+        htmlContent.append("                        <p>Solutions built to grow with your business, handling increasing demands.</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <h3>SEO Optimization</h3>\n");
+        htmlContent.append("                        <p>Improved visibility on search engines to attract more organic traffic.</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <h3>Robust Security</h3>\n");
+        htmlContent.append("                        <p>Protecting your data and users with industry-leading security practices.</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                </div>\n");
+        htmlContent.append("            </section>\n");
+
+        // Team Section (with images and descriptions)
+        htmlContent.append("            <section id=\"team\">\n");
+        htmlContent.append("                <h2>Meet Our Expert Team</h2>\n");
+        htmlContent.append("                <div class=\"grid-container\">\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <img src=\"https://placehold.co/100x100/3498db/ffffff?text=JD\" alt=\"John Doe, CEO\">\n");
+        htmlContent.append("                        <h3>John Doe</h3>\n");
+        htmlContent.append("                        <p>CEO & Lead Architect</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <img src=\"https://placehold.co/100x100/2ecc71/ffffff?text=JS\" alt=\"Jane Smith, Lead Developer\">\n");
+        htmlContent.append("                        <h3>Jane Smith</h3>\n");
+        htmlContent.append("                        <p>Lead Web Developer</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"grid-item\">\n");
+        htmlContent.append("                        <img src=\"https://placehold.co/100x100/9b59b6/ffffff?text=AP\" alt=\"Alex P, UX Designer\">\n");
+        htmlContent.append("                        <h3>Alex Peterson</h3>\n");
+        htmlContent.append("                        <p>UX/UI Designer</p>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                </div>\n");
+        htmlContent.append("            </section>\n");
+
+        // Contact Section (with a more detailed form)
+        htmlContent.append("            <section id=\"contact\">\n");
+        htmlContent.append("                <h2>Get in Touch</h2>\n");
+        htmlContent.append("                <p>Have a project in mind or a question? Fill out the form below, and we'll get back to you shortly.</p>\n");
+        htmlContent.append("                <form action=\"/submit-inquiry\" method=\"POST\">\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"full-name\">Full Name:</label>\n");
+        htmlContent.append("                        <input type=\"text\" id=\"full-name\" name=\"userName\" required placeholder=\"Your Full Name\">\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"user-email\">Email Address:</label>\n");
+        htmlContent.append("                        <input type=\"email\" id=\"user-email\" name=\"userEmail\" required placeholder=\"your.email@example.com\">\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"service-type\">Service of Interest:</label>\n");
+        htmlContent.append("                        <select id=\"service-type\" name=\"serviceType\">\n");
+        htmlContent.append("                            <option value=\"\">-- Select a Service --</option>\n");
+        htmlContent.append("                            <option value=\"web-dev\">Web Development</option>\n");
+        htmlContent.append("                            <option value=\"ui-ux\">UI/UX Design</option>\n");
+        htmlContent.append("                            <option value=\"seo\">SEO & Marketing</option>\n");
+        htmlContent.append("                            <option value=\"consulting\">Consulting</option>\n");
+        htmlContent.append("                            <option value=\"other\">Other</option>\n");
+        htmlContent.append("                        </select>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"user-message\">Your Message:</label>\n");
+        htmlContent.append("                        <textarea id=\"user-message\" name=\"userMessage\" rows=\"7\" required placeholder=\"Tell us about your project or inquiry...\"></textarea>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <button type=\"submit\" class=\"submit-button\">Send Message</button>\n");
+        htmlContent.append("                </form>\n");
+        htmlContent.append("            </section>\n");
+
+        htmlContent.append("        </main>\n"); // End main content
+
+        // Footer
+        htmlContent.append("        <footer>\n");
+        htmlContent.append("            <p>&copy; " + LocalDate.now().getYear() + " Dynamic Solutions. All rights reserved.</p>\n");
+        htmlContent.append("            <div class=\"footer-links\">\n");
+        htmlContent.append("                <a href=\"#\">Privacy Policy</a> |\n");
+        htmlContent.append("                <a href=\"#\">Terms of Service</a> |\n");
+        htmlContent.append("                <a href=\"#\">Sitemap</a>\n");
+        htmlContent.append("            </div>\n");
+        htmlContent.append("            <p>Generated by Java at: " + new Date() + "</p>\n");
+        htmlContent.append("        </footer>\n");
+
+        htmlContent.append("    </div>\n"); // End container
+        htmlContent.append("</body>\n");
+
+        // Close the <html> tag
+        htmlContent.append("</html>");
+
+        // Print the complete HTML string to the console
+        System.out.println(htmlContent.toString());
+    }
+}
+
