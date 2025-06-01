@@ -1,0 +1,322 @@
+/*
+ * style.css
+ *
+ * This stylesheet provides core styles for the "My Online Shop" website.
+ * It's designed to complement the existing HTML structure and Tailwind CSS classes,
+ * adding custom touches and ensuring responsiveness.
+ */
+
+/* --- 1. Basic Resets & Global Styles --- */
+
+/* Universal Box-Sizing for consistent layout behavior */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Body and HTML root element styles */
+html {
+    font-size: 16px; /* Base font size for rem units */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8fafc; /* Light background color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Headings (h1-h6) styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+/* Links */
+a {
+    color: #3182ce;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+/* --- 2. Layout Helpers --- */
+
+/* Container for main content to center and limit width */
+.container {
+    max-width: 1280px; /* Slightly wider container */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* Main content area */
+main {
+    flex-grow: 1;
+    padding: 2.5rem 0;
+}
+
+/* Section Styling */
+section {
+    background-color: #ffffff;
+    padding: 2.5rem; /* Slightly less padding than previous comprehensive CSS */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- 3. Component Specific Styles --- */
+
+/* Header & Navigation */
+header {
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+header .container {
+    padding-left: 1rem; /* Adjust padding for cart icon */
+    padding-right: 1rem;
+}
+
+nav a {
+    font-weight: 500;
+}
+
+/* Cart Button specific styling */
+header .items-center > button { /* Targets the cart button directly */
+    position: relative; /* For absolute positioning of cart count */
+    padding: 0.5rem; /* Add padding for better click area */
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: background-color 0.2s ease;
+}
+
+header .items-center > button:hover {
+    background-color: #f0f4f8; /* Light background on hover */
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px; /* Adjust vertical position */
+    right: -8px; /* Adjust horizontal position */
+    min-width: 20px; /* Ensure it's round even with single digit */
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem; /* Smaller font for count */
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 2rem;
+    background-color: #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.hero-section h2 {
+    font-size: 3.5rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    color: #4a5568;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Product Cards */
+#products .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+}
+
+.product-card { /* Custom class for product divs */
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for product images */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-bottom: 1px solid #edf2f7;
+}
+
+.product-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3182ce;
+}
+
+.product-card button {
+    /* Tailwind classes are mostly sufficient, but can add custom here */
+    font-weight: 600;
+}
+
+/* Categories Section */
+#categories .flex-wrap {
+    gap: 1rem; /* Space between category buttons */
+}
+
+#categories a {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; /* Pill shape */
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: #a0aec0;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* --- 4. Responsive Adjustments (Media Queries) --- */
+
+/* For screens smaller than 768px (e.g., tablets and mobile) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem; /* Reduce padding on smaller screens */
+    }
+
+    header .container {
+        flex-direction: row; /* Keep header items in a row */
+        justify-content: space-between;
+    }
+
+    header nav {
+        display: none; /* Hide main nav on small screens, mobile menu button will be visible */
+    }
+
+    .hero-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 1.5rem; /* Reduce section padding */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    #products .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 1rem;
+    }
+
+    .product-card img {
+        height: 180px; /* Slightly smaller image height */
+    }
+
+    .product-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .product-card .price {
+        font-size: 1.1rem;
+    }
+
+    .product-card button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    /* Newsletter form stacking */
+    form.flex-col {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    form.flex-col input {
+        width: 100%;
+    }
+    form.flex-col button {
+        width: 100%;
+    }
+}
+
