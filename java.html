@@ -1,0 +1,153 @@
+import java.util.Date; // Import Date class for dynamic content
+import java.time.LocalDate; // For getting current year for footer
+import java.time.format.DateTimeFormatter; // For formatting date
+
+/**
+ * A Java program that generates a more complex and structured HTML string,
+ * including a header, navigation, multiple content sections, a table, a form,
+ * and a footer. This demonstrates how server-side Java can build
+ * comprehensive web page content dynamically.
+ */
+public class HtmlGeneratorComplex {
+
+    public static void main(String[] args) {
+        // Use StringBuilder for efficient string concatenation when building HTML.
+        StringBuilder htmlContent = new StringBuilder();
+
+        // --- 1. HTML Document Structure ---
+        htmlContent.append("<!DOCTYPE html>\n");
+        htmlContent.append("<html lang=\"en\">\n");
+
+        // --- 2. Head Section ---
+        htmlContent.append("<head>\n");
+        htmlContent.append("    <meta charset=\"UTF-8\">\n");
+        htmlContent.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+        htmlContent.append("    <title>Dynamic Java-Generated Website</title>\n");
+        // Inline CSS for comprehensive styling demonstration
+        htmlContent.append("    <style>\n");
+        htmlContent.append("        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; margin: 0; padding: 0; line-height: 1.6; color: #333; }\n");
+        htmlContent.append("        .container { max-width: 960px; margin: 20px auto; padding: 0 20px; }\n");
+        htmlContent.append("        header { background-color: #2c3e50; color: white; padding: 15px 0; text-align: center; border-radius: 8px 8px 0 0; }\n");
+        htmlContent.append("        header h1 { margin: 0; font-size: 2.2em; }\n");
+        htmlContent.append("        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; margin-top: 10px; }\n");
+        htmlContent.append("        nav ul li { margin: 0 15px; }\n");
+        htmlContent.append("        nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }\n");
+        htmlContent.append("        nav ul li a:hover { color: #3498db; }\n");
+        htmlContent.append("        main { background-color: white; padding: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 0 0 8px 8px; }\n");
+        htmlContent.append("        section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }\n");
+        htmlContent.append("        section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }\n");
+        htmlContent.append("        h2 { color: #2980b9; font-size: 1.8em; margin-bottom: 15px; text-align: center; }\n");
+        htmlContent.append("        p { margin-bottom: 10px; }\n");
+        htmlContent.append("        .feature-list { list-style-type: disc; margin-left: 20px; margin-bottom: 20px; }\n");
+        htmlContent.append("        .feature-list li { margin-bottom: 5px; }\n");
+        htmlContent.append("        table { width: 100%; border-collapse: collapse; margin-top: 20px; }\n");
+        htmlContent.append("        table, th, td { border: 1px solid #ddd; }\n");
+        htmlContent.append("        th, td { padding: 10px; text-align: left; }\n");
+        htmlContent.append("        th { background-color: #f2f2f2; }\n");
+        htmlContent.append("        .form-group { margin-bottom: 15px; }\n");
+        htmlContent.append("        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; }\n");
+        htmlContent.append("        .form-group input[type=\"text\"], .form-group input[type=\"email\"], .form-group textarea { width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; }\n");
+        htmlContent.append("        .form-group textarea { resize: vertical; min-height: 80px; }\n");
+        htmlContent.append("        .submit-button { background-color: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s ease; }\n");
+        htmlContent.append("        .submit-button:hover { background-color: #229a56; }\n");
+        htmlContent.append("        footer { text-align: center; padding: 15px 0; background-color: #34495e; color: white; border-radius: 0 0 8px 8px; margin-top: 20px; }\n");
+        htmlContent.append("        footer p { margin: 0; font-size: 0.9em; }\n");
+        htmlContent.append("    </style>\n");
+        htmlContent.append("</head>\n");
+
+        // --- 3. Body Section ---
+        htmlContent.append("<body>\n");
+        htmlContent.append("    <div class=\"container\">\n");
+
+        // Header
+        htmlContent.append("        <header>\n");
+        htmlContent.append("            <h1>Welcome to Our Dynamic Site!</h1>\n");
+        htmlContent.append("            <nav>\n");
+        htmlContent.append("                <ul>\n");
+        htmlContent.append("                    <li><a href=\"#home\">Home</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#about\">About Us</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#services\">Services</a></li>\n");
+        htmlContent.append("                    <li><a href=\"#contact\">Contact</a></li>\n");
+        htmlContent.append("                </ul>\n");
+        htmlContent.append("            </nav>\n");
+        htmlContent.append("        </header>\n");
+
+        // Main Content Area
+        htmlContent.append("        <main>\n");
+
+        // Home Section
+        htmlContent.append("            <section id=\"home\">\n");
+        htmlContent.append("                <h2>Greetings from Java!</h2>\n");
+        htmlContent.append("                <p>This entire web page, including its structure, content, and basic styling, has been meticulously crafted and assembled by a Java program.</p>\n");
+        htmlContent.append("                <p>It's a demonstration of how server-side Java applications can generate HTML responses that web browsers can render.</p>\n");
+        htmlContent.append("                <p><strong>Generated on:</strong> " + LocalDate.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy")) + "</p>\n");
+        htmlContent.append("                <p><strong>Current Time:</strong> " + new Date().toGMTString() + "</p>\n");
+        htmlContent.append("            </section>\n");
+
+        // About Section
+        htmlContent.append("            <section id=\"about\">\n");
+        htmlContent.append("                <h2>About Our Dynamic Content</h2>\n");
+        htmlContent.append("                <p>Our system leverages the power of Java to create flexible and data-driven web pages. Instead of static files, content can be pulled from databases, external APIs, or user inputs to create unique experiences.</p>\n");
+        htmlContent.append("                <ul class=\"feature-list\">\n");
+        htmlContent.append("                    <li>Real-time data integration.</li>\n");
+        htmlContent.append("                    <li>Customizable layouts.</li>\n");
+        htmlContent.append("                    <li>Scalable content delivery.</li>\n");
+        htmlContent.append("                </ul>\n");
+        htmlContent.append("            </section>\n");
+
+        // Services Section (with a simple table)
+        htmlContent.append("            <section id=\"services\">\n");
+        htmlContent.append("                <h2>Our Services</h2>\n");
+        htmlContent.append("                <p>We offer a range of services designed to meet your needs:</p>\n");
+        htmlContent.append("                <table>\n");
+        htmlContent.append("                    <thead>\n");
+        htmlContent.append("                        <tr><th>Service Name</th><th>Description</th><th>Availability</th></tr>\n");
+        htmlContent.append("                    </thead>\n");
+        htmlContent.append("                    <tbody>\n");
+        htmlContent.append("                        <tr><td>Web Development</td><td>Building responsive websites.</td><td>24/7</td></tr>\n");
+        htmlContent.append("                        <tr><td>Data Analysis</td><td>Insights from complex data.</td><td>Weekdays</td></tr>\n");
+        htmlContent.append("                        <tr><td>Consulting</td><td>Expert advice for your projects.</td><td>By Appointment</td></tr>\n");
+        htmlContent.append("                    </tbody>\n");
+        htmlContent.append("                </table>\n");
+        htmlContent.append("            </section>\n");
+
+        // Contact Section (with a form)
+        htmlContent.append("            <section id=\"contact\">\n");
+        htmlContent.append("                <h2>Contact Us</h2>\n");
+        htmlContent.append("                <p>Feel free to send us a message using the form below:</p>\n");
+        htmlContent.append("                <form action=\"/submit-inquiry\" method=\"POST\">\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"contact-name\">Name:</label>\n");
+        htmlContent.append("                        <input type=\"text\" id=\"contact-name\" name=\"userName\" required placeholder=\"Your Name\">\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"contact-email\">Email:</label>\n");
+        htmlContent.append("                        <input type=\"email\" id=\"contact-email\" name=\"userEmail\" required placeholder=\"your.email@example.com\">\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <div class=\"form-group\">\n");
+        htmlContent.append("                        <label for=\"contact-message\">Message:</label>\n");
+        htmlContent.append("                        <textarea id=\"contact-message\" name=\"userMessage\" rows=\"5\" required placeholder=\"Your message...\"></textarea>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <button type=\"submit\" class=\"submit-button\">Send Message</button>\n");
+        htmlContent.append("                </form>\n");
+        htmlContent.append("            </section>\n");
+
+        htmlContent.append("        </main>\n"); // End main content
+
+        // Footer
+        htmlContent.append("        <footer>\n");
+        htmlContent.append("            <p>&copy; " + LocalDate.now().getYear() + " Java-Generated Site. All rights reserved.</p>\n");
+        htmlContent.append("            <p>Powered by Java.</p>\n");
+        htmlContent.append("        </footer>\n");
+
+        htmlContent.append("    </div>\n"); // End container
+        htmlContent.append("</body>\n");
+
+        // Close the <html> tag
+        htmlContent.append("</html>");
+
+        // Print the complete HTML string to the console
+        System.out.println(htmlContent.toString());
+    }
+}
+
