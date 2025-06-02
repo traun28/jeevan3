@@ -151,3 +151,24 @@ public class HtmlGeneratorComplex {
     }
 }
 
+);
+        htmlContent.append("                        <label for=\"contact-message\">Message:</label>\n");
+        htmlContent.append("                        <textarea id=\"contact-message\" name=\"userMessage\" rows=\"5\" required placeholder=\"Your message...\"></textarea>\n");
+        htmlContent.append("                    </div>\n");
+        htmlContent.append("                    <button type=\"submit\" class=\"submit-button\">Send Message</button>\n");
+        htmlContent.append("                </form>\n");
+        htmlContent.append("            </section>\n");
+
+        htmlContent.append("        </main>\n"); // End main content
+
+        // Footer
+        htmlContent.append("        <footer>\n");
+        htmlContent.append("            <p>&copy; " + LocalDate.now().getYear() + " Java-Generated Site. All rights reserved.</p>\n");
+        htmlContent.append("            <p>Powered by Java.</p>\n");
+        htmlContent.append("        </footer>\n");
+
+        htmlContent.append("    </div>\n"); // End container
+        htmlContent.append("</body>\n");
+
+        // Close the <html> tag
+
