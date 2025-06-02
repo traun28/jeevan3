@@ -68,4 +68,21 @@ Backend Integration: Connect to a server-side language (e.g., Node.js, Python, J
 
 Advanced UI/UX: Implement carousels, modals, and more complex interactive elements.
 
-Accessibility Improvements: Ensure full WCAG compliance.
+Accessibility Improvements: Ensure full WCAG compliance.JavaScript: Minimal client-side scripting for interactive elements like the "Add to Cart" counter.
+
+Future Enhancements
+This is a basic static site. Here are some ideas for future enhancements:
+
+Dynamic Product Data: Fetch product information from an API or JSON file.
+
+Full Cart Functionality: Implement adding/removing items, quantity updates, and checkout process.
+
+Product Detail Pages: Create separate pages for individual product details.
+
+Search and Filtering: Add functionality to search for products and filter by category, price, etc.
+
+User Authentication: Implement user login/registration.
+
+Backend Integration: Connect to a server-side language (e.g., Node.js, Python, Java) for database management and order processing.
+
+
